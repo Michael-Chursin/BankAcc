@@ -44,7 +44,12 @@ public class  Account {
         return balance * monthlyInterestRate;
     }
     public void withdraw(double sum) {
-        balance -= sum;
+        if(balance - sum > 0) {
+            balance -= sum;
+        }
+        else {
+            System.out.println("Not enough money on your account");
+        }
     }
     public void deposit(double sum) {
         balance += sum;
