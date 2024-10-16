@@ -1,8 +1,9 @@
 package Addons;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private double amount;
     private double balance;
     private String description;
