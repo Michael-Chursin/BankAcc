@@ -1,6 +1,9 @@
 package Main;
 
 import Addons.Account;
+import Addons.Transaction;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -17,13 +20,14 @@ public class Main {
             input = sc.nextInt();
         }
         int currAcc = input;
-        while(input != 4){
+        while(input != 5){
             double sum;
             System.out.println("Main menu");
             System.out.println("1::Check on your balance");
             System.out.println("2::Withdraw");
             System.out.println("3::Deposit");
-            System.out.println("4::LOG OUT");
+            System.out.println("4::Transactions");
+            System.out.println("5::LOG OUT");
             System.out.println("Input menu item");
             input = sc.nextInt();
             switch (input){
@@ -41,10 +45,25 @@ public class Main {
                     clients[currAcc].deposit(sum);
                     break;
                 case 4:
+                    System.out.println("Transactions:");
+                    ArrayList<Transaction> temp = clients[currAcc].getTransactions();
+                    if(temp.isEmpty()){
+                        System.out.println(":*:*:*:*: No tRaNsAcTiOnS YeT :*:*:*:*:\n");
+                        break;
+                    }
+                    for(Transaction t: temp){
+                        System.out.println("\tType: " + t.getType());
+                        System.out.println("\tDate: " + t.getDate());
+                        System.out.println("\tAmount: " + t.getAmount());
+                        System.out.println("\tBalance after transaction: " + t.getBalance());
+                        System.out.println("\tDescription: " + t.getDescription() + "\n");
+                    }
+                    break;
+                case 5:
                     System.out.println("|||LOGGING OUT||||");
                     break;
                 default:
-                    System.out.println("Wrong input");
+                    System.out.println("Wrong input\n");
                     break;
             }
         }
