@@ -46,7 +46,7 @@ public class  Account implements Serializable {
         return dateCreated;
     }
     public Date getDateInterestCredited() {
-        return dateCreated;
+        return dateInterestCredited;
     }
     public void setDateInterestCredited(Date DIC) {
         dateInterestCredited = DIC;
