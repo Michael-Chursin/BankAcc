@@ -15,12 +15,14 @@ public class  Account implements Serializable {
         id = 0;
         balance = 0;
         dateCreated = new Date();
+        dateInterestCredited = dateCreated;
         annualInterestRate = 0;
     }
     public Account(int num, double bal) {
         id = num;
         balance = bal;
         dateCreated = new Date();
+        dateInterestCredited = dateCreated;
     }
     public int getID() {
         return id;
@@ -46,7 +48,7 @@ public class  Account implements Serializable {
     public Date getDateInterestCredited() {
         return dateCreated;
     }
-    public void setBalance(Date DIC) {
+    public void setDateInterestCredited(Date DIC) {
         dateInterestCredited = DIC;
     }
     public double getMonthlyInterest() {

@@ -4,6 +4,9 @@ import Addons.Account;
 import Addons.Transaction;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -14,6 +17,12 @@ public class Main {
     static Date today = new Date();
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
+        Path dirPath = Paths.get("./Accounts");
+        try {
+            Files.createDirectories(dirPath);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Account[] clients = new Account[10];
         for(int i = 0; i < 10; i++){
             File f = new File("Accounts/User" + i + ".txt");
